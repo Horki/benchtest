@@ -18,12 +18,13 @@ CPU Caches:
   L1 Instruction 32K (x4)
   L2 Unified 262K (x4)
   L3 Unified 6291K (x1)
--------------------------------------------------------
-Benchmark                Time           CPU Iterations
--------------------------------------------------------
-bench_create             0 ns          0 ns 1000000000
-bench_reserve            0 ns          0 ns 1000000000
-bench_push_back          2 ns          2 ns  355207340
+Load Average: 1.38, 1.73, 1.70
+----------------------------------------------------------
+Benchmark                Time             CPU   Iterations
+----------------------------------------------------------
+bench_create         0.308 ns        0.308 ns   1000000000
+bench_reserve        0.302 ns        0.302 ns   1000000000
+bench_push_back       2.05 ns         2.05 ns    343612248
 ```
 
 ## Arch Linux
