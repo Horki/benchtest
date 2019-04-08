@@ -27,5 +27,26 @@ bench_push_back          2 ns          2 ns  355207340
 ```
 
 ## Arch Linux
+```console
+clang version 8.0.0 (tags/RELEASE_800/final)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+```
 
 ### Result
+```console
+Run on (8 X 4000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x4)
+  L1 Instruction 32K (x4)
+  L2 Unified 256K (x4)
+  L3 Unified 8192K (x1)
+Load Average: 0.05, 0.12, 0.15
+----------------------------------------------------------
+Benchmark                Time             CPU   Iterations
+----------------------------------------------------------
+bench_create         0.266 ns        0.266 ns   1000000000
+bench_reserve         9.59 ns         9.59 ns     69819729
+bench_push_back       9.58 ns         9.58 ns     73438758
+```
