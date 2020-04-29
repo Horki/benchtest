@@ -13,6 +13,14 @@ build:
 	cmake .. && \
 	make
 
+.PHONY: cpuperformance
+cpuperformance:
+	sudo cpupower frequency-set -g performance
+
+.PHONY: cpupowersave
+cpupowersave:
+	sudo cpupower frequency-set -g powersave
+
 .PHONY: debug
 debug:
 	mkdir -p build
