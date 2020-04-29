@@ -13,4 +13,5 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 add_executable(${PROJECT_NAME} src/bench.cc)
+target_include_directories(${PROJECT_NAME} PUBLIC include/)
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})

@@ -1,7 +1,11 @@
 #include <benchmark/benchmark.h>
 
+#include <algorithm>
+#include <iostream>
 #include <list>
 #include <vector>
+
+#include "odd_num.hh"
 
 static void bench_init_list(benchmark::State &s) {
   while (s.KeepRunning()) {
@@ -16,5 +20,23 @@ static void bench_init_vec(benchmark::State &s) {
   }
 }
 BENCHMARK(bench_init_vec);
+
+static void bench_odd_class(benchmark::State &s) {
+  std::vector<unsigned> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  while (s.KeepRunning()) {
+    std::cerr.setstate(std::ios_base::failbit);
+    std::for_each(v.begin(), v.end(), PrintOdd{std::cerr});
+  }
+}
+BENCHMARK(bench_odd_class);
+
+static void bench_odd_fn(benchmark::State &s) {
+  std::vector<unsigned> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  while (s.KeepRunning()) {
+    std::cerr.setstate(std::ios_base::failbit);
+    print_odd(v, std::cerr);
+  }
+}
+BENCHMARK(bench_odd_fn);
 
 BENCHMARK_MAIN();
