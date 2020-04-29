@@ -1,16 +1,26 @@
-CC=clang++
-CC_FLAGS=-O3 -std=c++14 -lc++abi -Wall -Werror -pedantic \
-			-fno-exceptions -fno-rtti -pthreads
+.PHONY: all
+all: format build
 
-BINS=bench 
-
+.PHONY: format
 format:
-	clang-format src/* -i
+	clang-format src/*.cc -i
 
-all: $(BINS)
+.PHONY: build
+build:
+	mkdir -p build
+	cd build && \
+	conan install .. --build missing && \
+	cmake .. && \
+	make
 
-bench: bench.cpp
-	$(CC) $(CC_FLAGS) -o bench bench.cpp -lbenchmark
+.PHONY: debug
+debug:
+	mkdir -p build
+	cd build && \
+	conan install .. --build missing && \
+	cmake -DCMAKE_BUILD_TYPE=debug .. && \
+	make
 
+.PHONY: clean
 clean:
-	rm -f $(BINS)
+	rm -rf build
