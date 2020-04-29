@@ -1,4 +1,5 @@
 #include <benchmark/benchmark.h>
+
 #include <vector>
 
 using namespace std;
@@ -6,7 +7,7 @@ using namespace std;
 static void bench_create(benchmark::State &state) {
   while (state.KeepRunning()) {
     vector<int> v;
-    (void) v;
+    (void)v;
   }
 }
 BENCHMARK(bench_create);

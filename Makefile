@@ -4,6 +4,9 @@ CC_FLAGS=-O3 -std=c++14 -lc++abi -Wall -Werror -pedantic \
 
 BINS=bench 
 
+format:
+	clang-format src/* -i
+
 all: $(BINS)
 
 bench: bench.cpp
