@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "odd_num.hh"
+#include "swaps.hh"
 
 static void bench_init_list(benchmark::State &s) {
   while (s.KeepRunning()) {
@@ -38,5 +39,32 @@ static void bench_odd_fn(benchmark::State &s) {
   }
 }
 BENCHMARK(bench_odd_fn);
+
+static void bench_simple_swap(benchmark::State &s) {
+  int a = 10;
+  int b = 5;
+  for (auto _ : s) {
+    simple_swap(a, b);
+  }
+}
+BENCHMARK(bench_simple_swap);
+
+static void bench_better_swap(benchmark::State &s) {
+  int a = 10;
+  int b = 5;
+  for (auto _ : s) {
+    better_swap(a, b);
+  }
+}
+BENCHMARK(bench_better_swap);
+
+static void bench_std_swap(benchmark::State &s) {
+  int a = 10;
+  int b = 5;
+  for (auto _ : s) {
+    std::swap(a, b);
+  }
+}
+BENCHMARK(bench_std_swap);
 
 BENCHMARK_MAIN();
