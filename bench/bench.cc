@@ -41,8 +41,8 @@ static void bench_odd_fn(benchmark::State &s) {
 BENCHMARK(bench_odd_fn);
 
 static void bench_simple_swap(benchmark::State &s) {
-  int a = 10;
-  int b = 5;
+  std::vector<int> a(10000000, 3);
+  std::vector<int> b(10000000, 2);
   for (auto _ : s) {
     simple_swap(a, b);
   }
@@ -50,8 +50,8 @@ static void bench_simple_swap(benchmark::State &s) {
 BENCHMARK(bench_simple_swap);
 
 static void bench_better_swap(benchmark::State &s) {
-  int a = 10;
-  int b = 5;
+  std::vector<int> a(10000000, 3);
+  std::vector<int> b(10000000, 2);
   for (auto _ : s) {
     better_swap(a, b);
   }
@@ -59,8 +59,8 @@ static void bench_better_swap(benchmark::State &s) {
 BENCHMARK(bench_better_swap);
 
 static void bench_std_swap(benchmark::State &s) {
-  int a = 10;
-  int b = 5;
+  std::vector<int> a(10000000, 3);
+  std::vector<int> b(10000000, 2);
   for (auto _ : s) {
     std::swap(a, b);
   }
