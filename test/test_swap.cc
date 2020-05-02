@@ -1,5 +1,7 @@
-#include <vector>
 #include <gtest/gtest.h>
+
+#include <vector>
+
 #include "swaps.hh"
 
 TEST(SWAP_Test, test_simple_swap) {
@@ -45,4 +47,3 @@ TEST(SWAP_Test, test_better_swap_vec) {
   ASSERT_EQ(a.size(), b_len);
   ASSERT_EQ(b.size(), a_len);
 }
-
