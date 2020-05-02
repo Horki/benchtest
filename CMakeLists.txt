@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(benchtest CXX)
+project(prog CXX)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
@@ -13,15 +13,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -Werror")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
+# Conan
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+# Test
 enable_testing()
 add_subdirectory(test)
 
-add_executable(prog src/main.cc)
-target_include_directories(prog PUBLIC include/)
+# Bench
+add_subdirectory(bench)
 
-add_executable(${PROJECT_NAME} bench/bench.cc)
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS_BENCHMARK})
+add_executable(${PROJECT_NAME} src/main.cc)
 target_include_directories(${PROJECT_NAME} PUBLIC include/)

@@ -1,9 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
-
 project(gtesting CXX)
-
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
 
 add_executable(${PROJECT_NAME} test_swap.cc)
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS_GTEST})
