@@ -13,11 +13,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -Werror")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-enable_testing()
-add_subdirectory(test)
-
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
+
+enable_testing()
+add_subdirectory(test)
 
 add_executable(prog src/main.cc)
 target_include_directories(prog PUBLIC include/)
