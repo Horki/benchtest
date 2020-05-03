@@ -5,6 +5,7 @@
 #include <list>
 #include <vector>
 
+#include "fac.hh"
 #include "odd_num.hh"
 #include "swaps.hh"
 

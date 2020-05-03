@@ -2,6 +2,7 @@
 
 #include <vector>
 
+#include "fac.hh"
 #include "swaps.hh"
 
 TEST(SWAP_Test, test_simple_swap) {
@@ -46,4 +47,11 @@ TEST(SWAP_Test, test_better_swap_vec) {
   ASSERT_EQ(b[0], 10);
   ASSERT_EQ(a.size(), b_len);
   ASSERT_EQ(b.size(), a_len);
+}
+
+TEST(FAC_test, test_fac) {
+  ASSERT_EQ(fac_loop(7), 5040);
+  ASSERT_EQ(fac_const(7), 5040);
+  ASSERT_EQ(fac_inline(7), 5040);
+  ASSERT_EQ(fac_regular(7), 5040);
 }
