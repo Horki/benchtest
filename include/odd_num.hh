@@ -5,6 +5,7 @@
 #include <ostream>
 #include <vector>
 
+namespace OddNumber {
 class PrintOdd {
   std::ostream& os;
 
@@ -24,5 +25,6 @@ void print_odd(std::vector<unsigned>& v, std::ostream& os) {
     }
   });
 }
+}  // namespace OddNumber
 
 #endif

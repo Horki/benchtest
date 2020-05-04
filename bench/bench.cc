@@ -5,7 +5,6 @@
 #include <list>
 #include <vector>
 
-#include "fac.hh"
 #include "odd_num.hh"
 #include "swaps.hh"
 
@@ -27,7 +26,7 @@ static void bench_odd_class(benchmark::State &s) {
   std::vector<unsigned> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
   while (s.KeepRunning()) {
     std::cerr.setstate(std::ios_base::failbit);
-    std::for_each(v.begin(), v.end(), PrintOdd{std::cerr});
+    std::for_each(v.begin(), v.end(), OddNumber::PrintOdd{std::cerr});
   }
 }
 BENCHMARK(bench_odd_class);
@@ -36,7 +35,7 @@ static void bench_odd_fn(benchmark::State &s) {
   std::vector<unsigned> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
   while (s.KeepRunning()) {
     std::cerr.setstate(std::ios_base::failbit);
-    print_odd(v, std::cerr);
+    OddNumber::print_odd(v, std::cerr);
   }
 }
 BENCHMARK(bench_odd_fn);
@@ -45,7 +44,7 @@ static void bench_simple_swap(benchmark::State &s) {
   std::vector<int> a(10000000, 3);
   std::vector<int> b(10000000, 2);
   for (auto _ : s) {
-    simple_swap(a, b);
+    Swap::simple_swap(a, b);
   }
 }
 BENCHMARK(bench_simple_swap);
@@ -54,7 +53,7 @@ static void bench_better_swap(benchmark::State &s) {
   std::vector<int> a(10000000, 3);
   std::vector<int> b(10000000, 2);
   for (auto _ : s) {
-    better_swap(a, b);
+    Swap::better_swap(a, b);
   }
 }
 BENCHMARK(bench_better_swap);

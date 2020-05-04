@@ -2,6 +2,8 @@
 
 #include "fac.hh"
 
+using namespace Factorial;
+
 static void bench_fac_const(benchmark::State &s) {
   while (s.KeepRunning()) {
     int i = fac_const(200);

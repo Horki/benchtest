@@ -3,6 +3,7 @@
 
 #include <memory>
 
+namespace Swap {
 template <typename T>
 void simple_swap(T& a, T& b) {
   T tmp = a;
@@ -16,5 +17,6 @@ void better_swap(T& a, T& b) {
   a = std::move(b);
   b = std::move(tmp);
 }
+}  // namespace Swap
 
 #endif

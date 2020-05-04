@@ -8,7 +8,7 @@
 TEST(SWAP_Test, test_simple_swap) {
   int a = 10;
   int b = 4;
-  simple_swap(a, b);
+  Swap::simple_swap(a, b);
   ASSERT_EQ(a, 4);
   ASSERT_EQ(b, 10);
 }
@@ -19,7 +19,7 @@ TEST(SWAP_Test, test_simple_swap_vec) {
   std::vector<int> a(a_len, 10);
   std::vector<int> b(b_len, 4);
 
-  simple_swap(a, b);
+  Swap::simple_swap(a, b);
   ASSERT_EQ(a[0], 4);
   ASSERT_EQ(b[0], 10);
   ASSERT_EQ(a.size(), b_len);
@@ -30,7 +30,7 @@ TEST(SWAP_Test, test_simple_swap_vec) {
 TEST(SWAP_Test, test_better_swap) {
   int a = 10;
   int b = 4;
-  better_swap(a, b);
+  Swap::better_swap(a, b);
   ASSERT_EQ(a, 4);
   ASSERT_EQ(b, 10);
 }
@@ -42,7 +42,7 @@ TEST(SWAP_Test, test_better_swap_vec) {
   std::vector<int> a(a_len, 10);
   std::vector<int> b(b_len, 4);
 
-  better_swap(a, b);
+  Swap::better_swap(a, b);
   ASSERT_EQ(a[0], 4);
   ASSERT_EQ(b[0], 10);
   ASSERT_EQ(a.size(), b_len);
@@ -50,8 +50,8 @@ TEST(SWAP_Test, test_better_swap_vec) {
 }
 
 TEST(FAC_test, test_fac) {
-  ASSERT_EQ(fac_loop(7), 5040);
-  ASSERT_EQ(fac_const(7), 5040);
-  ASSERT_EQ(fac_inline(7), 5040);
-  ASSERT_EQ(fac_regular(7), 5040);
+  ASSERT_EQ(Factorial::fac_loop(7), 5040);
+  ASSERT_EQ(Factorial::fac_const(7), 5040);
+  ASSERT_EQ(Factorial::fac_inline(7), 5040);
+  ASSERT_EQ(Factorial::fac_regular(7), 5040);
 }
