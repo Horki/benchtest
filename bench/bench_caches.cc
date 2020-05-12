@@ -4,6 +4,15 @@
 
 using namespace CacheReplacement;
 
+static void bench_get(benchmark::State& s) {
+  LRUCache<int, int> lruCache(2);
+  lruCache.set(1, 1);
+  while (s.KeepRunning()) {
+    lruCache.get(1);
+  }
+}
+BENCHMARK(bench_get);
+
 static void bench_get_opt(benchmark::State& s) {
   LRUCache<int, int> lruCache(2);
   lruCache.set(1, 1);
@@ -13,13 +22,13 @@ static void bench_get_opt(benchmark::State& s) {
 }
 BENCHMARK(bench_get_opt);
 
-static void bench_get(benchmark::State& s) {
+static void bench_get_opt_slow(benchmark::State& s) {
   LRUCache<int, int> lruCache(2);
   lruCache.set(1, 1);
   while (s.KeepRunning()) {
-    lruCache.get(1);
+    lruCache.get_opt_slow(1);
   }
 }
-BENCHMARK(bench_get);
+BENCHMARK(bench_get_opt_slow);
 
 BENCHMARK_MAIN();
