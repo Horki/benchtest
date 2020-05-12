@@ -13,7 +13,7 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ### Result
 ```console
 Run on (8 X 2200 MHz CPU s)
-CPU Caches:
+CPU CacheReplacement:
   L1 Data 32K (x4)
   L1 Instruction 32K (x4)
   L2 Unified 262K (x4)
@@ -38,7 +38,7 @@ InstalledDir: /usr/bin
 ### Result
 ```console
 Run on (8 X 4000 MHz CPU s)
-CPU Caches:
+CPU CacheReplacement:
   L1 Data 32K (x4)
   L1 Instruction 32K (x4)
   L2 Unified 256K (x4)
