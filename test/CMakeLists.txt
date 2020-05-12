@@ -1,21 +1,21 @@
 project(gtesting CXX)
 
-add_executable(test_swap test_swap.cc)
-target_link_libraries(test_swap ${CONAN_LIBS_GTEST})
-target_include_directories(test_swap PUBLIC ../include/)
+add_executable(${PROJECT_NAME}_swap test_swap.cc)
+target_link_libraries(${PROJECT_NAME}_swap ${CONAN_LIBS_GTEST})
+target_include_directories(${PROJECT_NAME}_swap PUBLIC ../include/)
 
 add_test(
-  NAME test_swap
+  NAME ${PROJECT_NAME}_swap
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-  COMMAND test_swap
+  COMMAND ${PROJECT_NAME}_swap
 )
 
-add_executable(test_caches test_caches.cc)
-target_link_libraries(test_caches ${CONAN_LIBS_GTEST})
-target_include_directories(test_caches PUBLIC ../include/)
+add_executable(${PROJECT_NAME}_caches test_caches.cc)
+target_link_libraries(${PROJECT_NAME}_caches ${CONAN_LIBS_GTEST})
+target_include_directories(${PROJECT_NAME}_caches PUBLIC ../include/)
 
 add_test(
-        NAME test_caches
+        NAME ${PROJECT_NAME}_caches
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-        COMMAND test_caches
+        COMMAND ${PROJECT_NAME}_caches
 )
