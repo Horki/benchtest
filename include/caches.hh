@@ -59,11 +59,20 @@ class LRUCache : public CacheReplacement<K, V> {
   // Avoid exceptions
   std::optional<std::reference_wrapper<const V>> get_opt(
       const K& key) noexcept {
-    try {
-      return get(key);
-    } catch (const std::range_error&) {
+// SLOW!!!
+//    try {
+//      return get(key);
+//    } catch (const std::range_error&) {
+//      return std::nullopt;
+//    }
+    auto iterator = hash.find(key);
+    if (iterator == hash.end()) {
       return std::nullopt;
     }
+    // Last used is set to begging of doubly linked list.
+    linkedList.begin() = iterator->second;
+    return linkedList.begin()->second;
+
   }
 
   const LinkedList& getList() { return linkedList; }
