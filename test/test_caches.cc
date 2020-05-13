@@ -47,9 +47,9 @@ TEST(CACHE, test_leetcode) {
   lruCache.set(1, 1);
   lruCache.set(2, 2);
   ASSERT_EQ(lruCache.get(1), 1);
-  lruCache.set(3, 3); // evicts key 2
+  lruCache.set(3, 3);  // evicts key 2
   ASSERT_EQ(lruCache.get_opt(2), std::nullopt);
-  lruCache.set(4, 4); // evicts key 1
+  lruCache.set(4, 4);  // evicts key 1
   ASSERT_EQ(lruCache.get_opt(1), std::nullopt);
   ASSERT_EQ(lruCache.get(3), 3);
   ASSERT_EQ(lruCache.get(4), 4);
