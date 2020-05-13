@@ -52,8 +52,8 @@ class LRUCache : public CacheReplacement<K, V> {
       throw std::range_error("LRU Cache: Out of Range");
     }
     // Last used is set to begging of doubly linked list.
-    linkedList.begin() = iterator->second;
-    return linkedList.begin()->second;
+    linkedList.splice(linkedList.begin(), linkedList, iterator->second);
+    return iterator->second->second;
   }
 
   // Avoid exceptions
@@ -64,8 +64,8 @@ class LRUCache : public CacheReplacement<K, V> {
       return std::nullopt;
     }
     // Last used is set to begging of doubly linked list.
-    linkedList.begin() = iterator->second;
-    return linkedList.begin()->second;
+    linkedList.splice(linkedList.begin(), linkedList, iterator->second);
+    return iterator->second->second;
   }
 
   std::optional<std::reference_wrapper<const V>> get_opt_slow(
