@@ -5,6 +5,7 @@
 
 #include "caches.hh"
 #include "odd_num.hh"
+#include "rhomb.hh"
 
 void output_lru(const std::list<std::pair<int, int>>&);
 
@@ -23,6 +24,13 @@ int main() {
     output_lru(l);
     lruCache.set(3, 3);
     output_lru(l);
+  }
+  {
+    using namespace Rhomb;
+    RhomboidMatrix rm(3);
+    std::cout << rm;
+    Rhomboid r(3);
+    std::cout << r;
   }
 }
 
