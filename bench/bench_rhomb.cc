@@ -25,3 +25,12 @@ static void bench_without_vector(benchmark::State& s) {
   }
 }
 BENCHMARK(bench_without_vector);
+
+static void bench_func(benchmark::State& s) {
+  while (s.KeepRunning()) {
+    std::cerr.setstate(std::ios_base::failbit);
+    print_rhomb(TIMES);
+  }
+}
+
+BENCHMARK(bench_func);

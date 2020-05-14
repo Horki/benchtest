@@ -69,6 +69,30 @@ std::ostream &operator<<(std::ostream &os, const Rhomboid &m) {
   return os;
 }
 
+inline void print_rhomb(std::size_t n) {
+  auto print_row = [=](std::size_t i, std::size_t j) {
+    if ((n + i - 1) == j || (n - i - 1) == j) {
+      std::cerr << '*';
+    } else {
+      std::cerr << ' ';
+    }
+  };
+  for (std::size_t i = 0; i < n; ++i) {
+    // row
+    for (std::size_t j = 0; j < (n * 2 - 1); ++j) {
+      print_row(i, j);
+    }
+    std::cerr << '\n';
+  }
+  for (int i = n - 2; i >= 0; --i) {
+    // row
+    for (std::size_t j = 0; j <= (n * 2); ++j) {
+      print_row(i, j);
+    }
+    std::cerr << '\n';
+  }
+}
+
 }  // namespace Rhomb
 
 #endif
